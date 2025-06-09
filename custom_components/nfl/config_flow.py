@@ -55,38 +55,15 @@ def _get_team_list() -> list:
     """Return list of team acronyms"""
 
     team_list = [
-        "ARI",
-        "ATL",
-        "BAL",
-        "BUF",
-        "CAR",
-        "CHI",
-        "CIN",
-        "CLE",
-        "DAL",
-        "DEN",
-        "DET",
-        "GB",
-        "HOU",
-        "IND",
-        "JAX",
-        "KC",
-        "LAC",
-        "LAR",
-        "LV",
-        "MIA",
-        "MIN",
-        "NE",
-        "NO",
-        "NYG",
-        "NYJ",
-        "PHI",
-        "PIT",
-        "SEA",
-        "SF",
-        "TB",
-        "TEN",
-        "WSH",
+        "BC",   # Lions
+        "CGY",  # Stampeders
+        "EDM",  # Elks
+        "SSK",  # Roughriders
+        "WPG",  # Blue Bombers
+        "HAM",  # Tiger-Cats
+        "MTL",  # Alouettes
+        "OTT",  # Redblacks
+        "TOR",  # Argonauts
     ]
 
     _LOGGER.debug("Team list: %s", team_list)
