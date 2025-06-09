@@ -260,10 +260,10 @@ async def async_get_state(config) -> dict:
         # misc ------------------------------------------------------------
         "last_update": arrow.now().format(arrow.FORMAT_W3C),
         "private_fast_refresh": (
-            True
-            if values:=STATUS_MAP.get(game["status"].lower()) in ["PRE", "IN"]
-            and (arrow.get(game["date"]) - arrow.now()).total_seconds() < 1200
-            else False
+            (
+                (STATUS_MAP.get(game["status"].lower()) in ["PRE", "IN"])
+                and (arrow.get(game["date"]) - arrow.now()).total_seconds() < 1200
+            )
         ),
     }
 
