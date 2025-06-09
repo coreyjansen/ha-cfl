@@ -6,7 +6,7 @@ from homeassistant import config_entries, data_entry_flow, setup
 from homeassistant.const import CONF_NAME
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
-from custom_components.nfl.const import CONF_TEAM_ID, DOMAIN
+from custom_components.cfl.const import CONF_TEAM_ID, DOMAIN
 
 
 @pytest.mark.parametrize(
@@ -45,7 +45,7 @@ async def test_form(
     # assert result["title"] == title_1
 
     with patch(
-        "custom_components.nfl.async_setup_entry",
+        "custom_components.cfl.async_setup_entry",
         return_value=True,
     ) as mock_setup_entry:
 
@@ -66,7 +66,7 @@ async def test_form(
 #     [
 #         {
 #             DOMAIN: {
-#                 CONF_NAME: "NFL",
+#                 CONF_NAME: "CFL",
 #                 CONF_TEAM_ID: "SEA",
 #             },
 #         },
@@ -77,7 +77,7 @@ async def test_form(
 #     await setup.async_setup_component(hass, "persistent_notification", {})
 
 #     with patch(
-#         "custom_components.nfl.async_setup_entry",
+#         "custom_components.cfl.async_setup_entry",
 #         return_value=True,
 #     ):
 #         result = await hass.config_entries.flow.async_init(

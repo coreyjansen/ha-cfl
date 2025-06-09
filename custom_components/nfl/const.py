@@ -14,8 +14,8 @@ DEFAULT_TIMEOUT = 120
 # Misc
 TEAM_ID = ""
 VERSION = "0.1"
-ISSUE_URL = "https://github.com/zacs/ha_nfl"
-DOMAIN = "nfl"
+ISSUE_URL = "https://github.com/coreyjansen/ha-cfl"
+DOMAIN = "cfl"
 PLATFORM = "sensor"
 ATTRIBUTION = "Data provided by CFL Scoreboard"
 COORDINATOR = "coordinator"

@@ -1,4 +1,4 @@
-""" NFL Team Status """
+""" CFL Team Status """
 import asyncio
 import logging
 from datetime import timedelta
@@ -44,7 +44,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Load the saved entities."""
     # Print startup message
     _LOGGER.info(
-        "NFL version %s is starting, if you have any issues please report them here: %s",
+        "CFL version %s is starting, if you have any issues please report them here: %s",
         VERSION,
         ISSUE_URL,
     )
@@ -60,7 +60,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             ent_reg.async_update_entity(entity.entity_id, new_unique_id=entry.entry_id)
 
     # Setup the data coordinator
-    coordinator = NFLDataUpdateCoordinator(
+    coordinator = CFLDataUpdateCoordinator(
         hass, entry.data, entry.data.get(CONF_TIMEOUT)
     )
 
@@ -136,8 +136,8 @@ async def async_migrate_entry(hass, config_entry):
     return True
 
 
-class NFLDataUpdateCoordinator(DataUpdateCoordinator):
-    """Class to manage fetching NFL data."""
+class CFLDataUpdateCoordinator(DataUpdateCoordinator):
+    """Class to manage fetching CFL data."""
 
     def __init__(self, hass, config, the_timeout: int):
         """Initialize."""
@@ -176,7 +176,7 @@ async def update_game(config) -> dict:
 
 
 async def async_get_state(config) -> dict:
-    """Get CFL state and flatten into NFL-style dict expected by sensor."""
+    """Get CFL state and flatten into CFL-style dict expected by sensor."""
     team_id = config[CONF_TEAM_ID].upper()
     headers = {"User-Agent": USER_AGENT, "Accept": "application/json"}
 

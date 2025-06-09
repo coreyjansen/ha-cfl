@@ -1,23 +1,23 @@
 blueprint:
   domain: automation
-  name: NFL Game Score
+  name: CFL Game Score
   description: >-
     Designed for Home Assistant mobile app notifications.
-    Will send a notification with NFL game information, triggered by any score change(optionally ignoring opponent scores).
+    Will send a notification with CFL game information, triggered by any score change(optionally ignoring opponent scores).
     
      
-    Requires the [ha-nfl integration by @zacs](https://github.com/zacs/ha-nfl).
+    Requires the [ha-cfl integration by @zacs](https://github.com/zacs/ha-cfl).
     
     
-    The NFL notifications will be grouped together and tagged so that as new scores come in each game, 
+    The CFL notifications will be grouped together and tagged so that as new scores come in each game, 
     individual game notifications are replaced with the updated scores.
   input:
     teams:
-      name: NFL Teams
-      description: NFL teams whose games you want to be notified of score changes
+      name: CFL Teams
+      description: CFL teams whose games you want to be notified of score changes
       selector:
         entity:
-          integration: nfl
+          integration: cfl
           multiple: true
     notify_targets:
       name: Mobile App devices to target

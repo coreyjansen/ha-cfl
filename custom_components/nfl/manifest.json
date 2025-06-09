@@ -1,12 +1,12 @@
 {
-    "domain": "nfl",
-    "name": "NFL",
-    "codeowners": ["@zacs"],
+    "domain": "cfl",
+    "name": "CFL",
+    "codeowners": ["@coreyjansen"],
     "config_flow": true,
     "dependencies": [],
-    "documentation": "https://github.com/zacs/ha_nfl",
+    "documentation": "https://github.com/coreyjansen/ha-cfl",
     "iot_class": "cloud_polling",
-    "issue_tracker": "https://github.com/zacs/ha_nfl/issues",
+    "issue_tracker": "https://github.com/coreyjansen/ha-cfl/issues",
     "requirements": ["arrow"],
     "version": "0.1.1"
   }

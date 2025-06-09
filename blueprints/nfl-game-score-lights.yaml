@@ -1,18 +1,18 @@
 blueprint:
   domain: automation
-  name: Light Up In NFL Team Colors on Score Changes
+  name: Light Up In CFL Team Colors on Score Changes
   description: >
     This blueprint will flash one or more lights using the team colors provided by the api, triggered by any score change (optionally ignoring opponent scores).
     
     
-    Requires the [ha-nfl integration by @zacs](https://github.com/zacs/ha-nfl).
+    Requires the [ha-cfl integration by @zacs](https://github.com/zacs/ha-cfl).
   input:
     teams:
-      name: NFL Teams
-      description: NFL teams whose games you want to watch for score changes.
+      name: CFL Teams
+      description: CFL teams whose games you want to watch for score changes.
       selector:
         entity:
-          integration: nfl
+          integration: cfl
           multiple: true
     light_targets:
       name: Lights to flash
@@ -63,7 +63,7 @@ action:
   - service: scene.create
     data:
       snapshot_entities:  !input light_targets
-      scene_id: nfl_game_score_lights_capture
+      scene_id: cfl_game_score_lights_capture
   - repeat:
       count: !input repeat_count
       sequence:
@@ -89,4 +89,4 @@ action:
             milliseconds: 0
   - service: scene.turn_on
     target:
-      entity_id: scene.nfl_game_score_lights_capture
+      entity_id: scene.cfl_game_score_lights_capture

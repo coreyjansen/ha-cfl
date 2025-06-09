@@ -9,7 +9,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.util import slugify
-from . import NFLDataUpdateCoordinator
+from . import CFLDataUpdateCoordinator
 
 from .const import (
     ATTRIBUTION,
@@ -44,7 +44,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
         config.data = config
 
     # Setup the data coordinator
-    coordinator = NFLDataUpdateCoordinator(
+    coordinator = CFLDataUpdateCoordinator(
         hass,
         config,
         config[CONF_TIMEOUT],
@@ -56,15 +56,15 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
     hass.data[DOMAIN][config.entry_id] = {
         COORDINATOR: coordinator,
     }
-    async_add_entities([NFLScoresSensor(hass, config)], True)
+    async_add_entities([CFLScoresSensor(hass, config)], True)
 
 
 async def async_setup_entry(hass, entry, async_add_entities):
     """Setup the sensor platform."""
-    async_add_entities([NFLScoresSensor(hass, entry)], True)
+    async_add_entities([CFLScoresSensor(hass, entry)], True)
 
 
-class NFLScoresSensor(CoordinatorEntity):
+class CFLScoresSensor(CoordinatorEntity):
     """Representation of a Sensor."""
 
     def __init__(self, hass: HomeAssistant, entry: ConfigEntry) -> None:

@@ -1,8 +1,8 @@
-# NFL game data in Home Assistant
+# CFL game data in Home Assistant
 
-This integration fetches data for an NFL team's current/future game, and creates a sensor with attributes for the details of the game. 
+This integration fetches data for an CFL team's current/future game, and creates a sensor with attributes for the details of the game. 
 
-You can find examples of interesting automations [in the wiki](https://github.com/zacs/ha-nfl/wiki/Automation-Examples) (please add your own examples!). There is also a great [custom card that leverages this sensor](https://github.com/D34DC3N73R/ha-nfl-card), built by @D34DC3N73R. 
+You can find examples of interesting automations [in the wiki](https://github.com/zacs/ha-cfl/wiki/Automation-Examples) (please add your own examples!). There is also a great [custom card that leverages this sensor](https://github.com/D34DC3N73R/ha-cfl-card), built by @D34DC3N73R. 
 
 The integration is a shameless fork of the excellent [NWS alerts](https://github.com/finity69x2/nws_alerts) custom component by @finity69x2.Thank you for the starting place!
 
@@ -27,7 +27,7 @@ The attributes available will change based on the sensor's state, a small number
 | `clock` | The clock value within the quarter (should never be higher than 15:00) | `IN` |
 | `venue` | The name of the stadium where the game is being played (eg. "Arrowhead Stadium") | `PRE` `IN` `POST` |
 | `location` | The city and state where the game is being played (eg. "Pittsburgh, PA") | `PRE` `IN` `POST` |
-| `tv_network` | The TV network where you can watch the game (eg. "NBC" or "NFL"). Note that if there is a national feed, it will be listed here, otherwise the local affiliate will be listed. | `PRE` `IN` `POST` |
+| `tv_network` | The TV network where you can watch the game (eg. "NBC" or "CFL"). Note that if there is a national feed, it will be listed here, otherwise the local affiliate will be listed. | `PRE` `IN` `POST` |
 | `odds` | The betting odds for the game (eg. "PIT -5.0") | `PRE` |
 | `overunder` | The over/under betting line for the total points scored in the game (eg. "42.5"). | `PRE` |
 | `possession` | The ID of the team in possession of the ball. This will correlate to `team_id` or `opponent_id` below. Note that this value will be null in between posessions (after a score, etc). | `IN` |
@@ -59,9 +59,9 @@ The attributes available will change based on the sensor's state, a small number
 
 ### Manually
 
-Clone or download this repository and copy the "nfl" directory to your "custom_components" directory in your config directory
+Clone or download this repository and copy the "cfl" directory to your "custom_components" directory in your config directory
 
-```<config directory>/custom_components/nfl/...```
+```<config directory>/custom_components/cfl/...```
   
 ### HACS
 
@@ -72,27 +72,27 @@ Clone or download this repository and copy the "nfl" directory to your "custom_c
   
 ## Configuration
 
-You'll need to know your team ID, which is a 2- or 3-letter acronym (eg. "SEA" for Seattle or "NE" for New England). You can find yours at https://espn.com/nfl in the top scores UI. 
+You'll need to know your team ID, which is a 2- or 3-letter acronym (eg. "SEA" for Seattle or "NE" for New England). You can find yours at https://espn.com/cfl in the top scores UI. 
 
 ### Via the "Configuration->Integrations" section of the Home Assistant UI
 
-Look for the integration labeled "NFL" and enter your team's acronym in the UI prompt. You can also enter a friendly name. If you keep the default, your sensor will be `sensor.nfl`, otherwise it will be `sensor.friendly_name_you_picked`. 
+Look for the integration labeled "CFL" and enter your team's acronym in the UI prompt. You can also enter a friendly name. If you keep the default, your sensor will be `sensor.cfl`, otherwise it will be `sensor.friendly_name_you_picked`. 
 
 ### Manually in your `configuration.yaml` file
 
 To create a sensor instance add the following configuration to your sensor definitions using the team_id found above:
 
 ```
-- platform: nfl
+- platform: cfl
   team_id: 'SEA'
 ```
 
-After you restart Home Assistant then you should have a new sensor called `sensor.nfl` in your system.
+After you restart Home Assistant then you should have a new sensor called `sensor.cfl` in your system.
 
-You can overide the sensor default name (`sensor.nfl`) to one of your choosing by setting the `name` option:
+You can overide the sensor default name (`sensor.cfl`) to one of your choosing by setting the `name` option:
 
 ```
-- platform: nfl
+- platform: cfl
   team_id: 'SEA'
   name: Seahawks
 ```
